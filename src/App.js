@@ -7,10 +7,10 @@ import { useGameHook } from './utils/hooks/useGameHook';
 
 function App() {
 
-  const { state, useGame } = useGameHook();
+  const { gameState, useGame } = useGameHook();
 
   return (
-    <GameContext.Provider value={{ state: state, useGame: useGame }}>
+    <GameContext.Provider value={{ gameState: gameState, useGame: useGame }}>
       <Router>
         <Switch>
           <Route exact path="/">
