@@ -10,7 +10,7 @@ export const Tableau = ({ pileList }) => {
             return null;
         }
         return (
-            <div className={styles.tableauColumnPile} >
+            <div className={styles.tableauColumnPile}  >
                 {renderPileCardItem(head, position)}
                 {renderWholePile(head.next, position + 1)}
             </div>
@@ -19,7 +19,7 @@ export const Tableau = ({ pileList }) => {
 
     const renderPileCardItem = (item, position) => {
         return (
-            <div className={styles.tableauColumnPileCard} style={{ top: position * 40 + 270 }} >
+            <div className={styles.tableauColumnPileCard} style={{ top: position * 40 + 270 }} onClick={()=>console.log(`item`, item)} >
                 <GameCard card = {item.data} />
             </div>
 

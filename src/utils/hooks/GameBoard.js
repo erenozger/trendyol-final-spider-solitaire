@@ -14,7 +14,7 @@ export class GameBoard {
             let pileSizeCount = i < 4 ? 6 : 5;
             for (let j = 0; j < pileSizeCount; j++) {
                 let card = cardsList[cardCount];
-                if(j === (pileSizeCount -1)){
+                if (j === (pileSizeCount - 1)) {
                     card.reverseCard()
                 }
                 pileLinkedList.add(card);
@@ -37,5 +37,13 @@ export class GameBoard {
         for (let k = 0; k < GameEnum.setCount; k++) {
             this.foundationList[k] = new CardLinkedList();
         }
+    };
+
+    moveCardsStockToPile(takenCards, GameEnum) {
+        for (let i = 0; i < GameEnum.stockSize; i++) {
+            this.pileList[i].add(takenCards[i]);
+        }
     }
+
+
 }

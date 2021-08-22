@@ -4,7 +4,7 @@ import { Card } from './Card';
 import { GameBoard } from './GameBoard';
 
 const GameEnum = Object.freeze({
-    "deckCount": 2, "setCount": 8, "setSize": 13, "pileSize": 10, "stockCount" : 5, "stockSize": 10, "cardCount" : 104,
+    "deckCount": 2, "setCount": 8, "setSize": 13, "pileSize": 10, "stockCount": 5, "stockSize": 10, "cardCount": 104,
     "cardsList": ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
 })
 
@@ -15,6 +15,12 @@ export function useGameHook() {
         (gameState, action) => {
             switch (action.type) {
                 case "SET_WHOLE_GAME_BOARD":
+                    return {
+                        ...gameState,
+                        loading: false,
+                        gameBoard: action.payload
+                    }
+                case "UPDATE_GAME_BOARD":
                     return {
                         ...gameState,
                         loading: false,
@@ -48,6 +54,22 @@ export function useGameHook() {
                         gameBoard.setWholeGameBoard(shuffledCards, GameEnum);
 
                         dispatch(createAction("SET_WHOLE_GAME_BOARD", gameBoard));
+                        resolve(true);
+                    } catch (err) {
+                        reject(err)
+                    }
+                })
+            },
+            openFromStock: () => {
+                return new Promise((resolve, reject) => {
+                    try {
+                        if(gameState.gameBoard.stockPile.length === 0 ){
+                            reject(new Error('Stock is empty!'))
+                        }
+                        let takenCards = gameState.gameBoard.stockPile.pop();
+                        gameState.gameBoard.moveCardsStockToPile(takenCards, GameEnum);
+                        console.log(`gameState.gameBoard`, gameState.gameBoard)
+                        dispatch(createAction("UPDATE_GAME_BOARD", gameState.gameBoard));
                         resolve(true);
                     } catch (err) {
                         reject(err)
