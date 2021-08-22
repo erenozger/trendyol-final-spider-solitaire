@@ -50,9 +50,8 @@ export function useGameHook() {
                         dispatch(createAction("SET_WHOLE_GAME_BOARD", gameBoard));
                         resolve(true);
                     } catch (err) {
-                        resolve(err)
+                        reject(err)
                     }
-
                 })
             }
         }), [gameState]

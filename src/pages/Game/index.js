@@ -1,6 +1,8 @@
 import React, { useEffect, useReducer } from 'react'
 import { GameContext } from '../../utils/contexts/GameContext';
 import { combineReducers } from '../../utils/combineReducers';
+import styles from "./styles.module.scss";
+import { Stock, Tableau, Foundation } from './components';
 
 const initialState = {
     gameLoading: false
@@ -17,6 +19,7 @@ const Game = () => {
         await useGame.createGameBoard().then(
             (res) => {
                 console.log(`res`, res)
+                console.log(`gameState`, gameState)
             }
         ).catch(
             (err) => console.log(`err`, err.message)
@@ -28,8 +31,22 @@ const Game = () => {
 
     return (
         <>
-            <div>
-                <h1>json {JSON.stringify(gameState.gameBoard)}</h1>
+            <div className={styles.game} >
+                <div className={styles.gameTop}>
+                    <div className={styles.gameTopStock}>
+                        <Stock />
+                    </div>
+                    <div className={styles.gameTopFoundation}>
+                        <Foundation />
+                    </div>
+                </div>
+                <div className={styles.gameBottom}>
+                    <div className={styles.gameBottomTableau}>
+                        <Tableau />
+                    </div>
+                </div>
+
+
             </div>
         </>
     )

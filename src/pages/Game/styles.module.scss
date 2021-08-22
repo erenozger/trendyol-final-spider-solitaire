@@ -1,0 +1,48 @@
+@import "./../../styles/variables";
+
+.game {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    height: 100vh;
+    justify-content: space-between;
+    width: 100%;
+    background-color: aqua;
+
+    &Top {
+        width: 100%;
+        height:25vh;
+        // display: flex;
+        // flex:1;
+        display: flex;
+        flex-direction: row;
+
+        &Stock{
+            width: 30%;
+            height: 100%;
+            background-color: red;
+        }
+
+        &Foundation {
+            width: 70%;
+            height: 100%;
+            background-color: yellow;
+        }
+    }
+
+    &Bottom {
+        width: 100%;
+        height: 75vh;
+        display: flex;
+
+        &Tableau {
+            width: 100%;
+            height: 100%;
+            background-color: blue;
+        }
+        
+    }
+
+    
+    
+}
