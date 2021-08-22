@@ -42,7 +42,7 @@ const Game = () => {
                 </div>
                 <div className={styles.gameBottom}>
                     <div className={styles.gameBottomTableau}>
-                        <Tableau />
+                        <Tableau pileList={gameState?.gameBoard?.pileList} />
                     </div>
                 </div>
 
