@@ -18,14 +18,9 @@ export const Tableau = ({ pileList }) => {
     }
 
     const renderPileCardItem = (item, position) => {
-
-        if (item === null) {
-            return null;
-        }
         return (
-            <div className={styles.tableauColumnPileCard} style={{ top: position * 30 + 270 }} >
-                <GameCard />
-                {/* {item.next ? renderPileCardItem(item.next,position+1) : null} */}
+            <div className={styles.tableauColumnPileCard} style={{ top: position * 40 + 270 }} >
+                <GameCard card = {item.data} />
             </div>
 
         )

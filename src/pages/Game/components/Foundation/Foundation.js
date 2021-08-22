@@ -12,7 +12,6 @@ export const Foundation = ({ foundationList }) => {
                         <div className={styles.foundationCard} key={index}  >
                             <GameCard style={{backgroundColor : item.getLast() === null ? "#e9ebf2" : "#FF844C" }} />
                         </div>
-
                     )
                 }) : null}
             </div>

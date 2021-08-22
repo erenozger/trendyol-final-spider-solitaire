@@ -13,7 +13,11 @@ export class GameBoard {
             let pileLinkedList = new CardLinkedList();
             let pileSizeCount = i < 4 ? 6 : 5;
             for (let j = 0; j < pileSizeCount; j++) {
-                pileLinkedList.add(cardsList[cardCount]);
+                let card = cardsList[cardCount];
+                if(j === (pileSizeCount -1)){
+                    card.reverseCard()
+                }
+                pileLinkedList.add(card);
                 cardCount++;
             }
             this.pileList[i] = pileLinkedList;
@@ -30,7 +34,7 @@ export class GameBoard {
             this.stockPile[j] = singleStockArr;
         }
 
-        for(let k = 0 ; k<GameEnum.setCount;k++){
+        for (let k = 0; k < GameEnum.setCount; k++) {
             this.foundationList[k] = new CardLinkedList();
         }
     }
