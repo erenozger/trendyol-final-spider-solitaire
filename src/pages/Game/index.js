@@ -34,10 +34,10 @@ const Game = () => {
             <div className={styles.game} >
                 <div className={styles.gameTop}>
                     <div className={styles.gameTopStock}>
-                        <Stock />
+                        <Stock stockPile={gameState?.gameBoard?.stockPile} />
                     </div>
                     <div className={styles.gameTopFoundation}>
-                        <Foundation />
+                        <Foundation foundationList={gameState?.gameBoard?.foundationList} />
                     </div>
                 </div>
                 <div className={styles.gameBottom}>

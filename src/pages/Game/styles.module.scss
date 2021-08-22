@@ -6,27 +6,23 @@
     flex: 1;
     height: 100vh;
     justify-content: space-between;
-    width: 100%;
-    background-color: aqua;
+    width: 200vh;
+    background-color: $blueBackground;
 
     &Top {
         width: 100%;
         height:25vh;
-        // display: flex;
-        // flex:1;
         display: flex;
         flex-direction: row;
 
         &Stock{
-            width: 30%;
+            width: 25%;
             height: 100%;
-            background-color: red;
         }
 
         &Foundation {
-            width: 70%;
+            width: 75%;
             height: 100%;
-            background-color: yellow;
         }
     }
 
@@ -38,7 +34,6 @@
         &Tableau {
             width: 100%;
             height: 100%;
-            background-color: blue;
         }
         
     }

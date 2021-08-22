@@ -29,5 +29,9 @@ export class GameBoard {
             }
             this.stockPile[j] = singleStockArr;
         }
+
+        for(let k = 0 ; k<GameEnum.setCount;k++){
+            this.foundationList[k] = new CardLinkedList();
+        }
     }
 }
