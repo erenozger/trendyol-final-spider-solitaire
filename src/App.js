@@ -1,13 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import { GameContext } from './utils/contexts/GameContext';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Onboarding from './pages/Onboarding/index';
+import Game from './pages/Game';
+import { useGameHook } from './utils/hooks/useGameHook';
 
 function App() {
+
+  const { state, useGame } = useGameHook();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Hello world</h1>
-      </header>
-    </div>
+    <GameContext.Provider value={{ state: state, useGame: useGame }}>
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            <Onboarding />
+          </Route>
+          <Route exact path="/Game">
+            <Game />
+          </Route>
+        </Switch>
+      </Router>
+    </GameContext.Provider>
   );
 }
 
