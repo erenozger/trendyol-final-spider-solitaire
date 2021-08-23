@@ -36,7 +36,6 @@ export const Tableau = ({ pileList }) => {
                                 ? <GameCard style={{ backgroundColor: "#e9ebf2" }} />
                                 : renderWholePile(pileLinkedList.head, 0)
                             }
-
                         </div>
                     )
                 }) : null}

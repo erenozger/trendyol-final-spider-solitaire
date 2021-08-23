@@ -13,10 +13,10 @@ function App() {
     <GameContext.Provider value={{ gameState: gameState, useGame: useGame }}>
       <Router>
         <Switch>
-          <Route exact path="/">
+          {/* <Route exact path="/">
             <Onboarding />
-          </Route>
-          <Route exact path="/Game">
+          </Route> */}
+          <Route exact path="/">
             <Game />
           </Route>
         </Switch>
